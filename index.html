@@ -44,8 +44,8 @@
         <div class="section-head"><div><h2 id="captureTitle">Capturar caja(s)</h2><p>Una caja o varias cajas idénticas</p></div><button id="clearBtn" class="icon secondary">↻</button></div>
         <input id="captureId" type="hidden">
         <div class="form-grid">
-          <label>Referencia interna<div class="with-action"><input id="internalRef"><button class="scan" data-target="internalRef">▣</button></div></label>
-          <label>EAN<div class="with-action"><input id="ean" inputmode="numeric"><button class="scan" data-target="ean">▣</button></div></label>
+          <label>Referencia interna<div class="with-action"><input id="internalRef" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Números y letras"><button class="scan" data-target="internalRef">▣</button></div></label>
+          <label>EAN / Código<div class="with-action"><input id="ean" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Números y letras"><button class="scan" data-target="ean">▣</button></div></label>
           <label class="wide">Descripción *<input id="description" placeholder="Descripción visual del producto"></label>
           <label>Cantidad de cajas iguales *<input id="boxCount" type="number" inputmode="numeric" min="1" step="1" value="1"></label>
           <label>Piezas por caja *<input id="pieces" type="number" inputmode="numeric" min="1"></label>
@@ -72,6 +72,7 @@
           </div>
           <label class="wide">Observaciones<textarea id="notes" rows="2"></textarea></label>
           <button id="saveBtn" class="primary wide save">Guardar caja(s)</button>
+          <button id="deleteBtn" class="danger wide hidden">Eliminar este registro</button>
         </div>
       </div>
 
