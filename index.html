@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102a43">
+  <title>Validador de Contenedores</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><strong>Validador de Contenedores</strong><small id="version"></small></div>
+    <div id="online" class="online">● Conectando</div>
+  </header>
+
+  <main>
+    <section id="screenStart" class="screen">
+      <div class="card hero"><h1>Iniciar validación</h1><p>Selecciona el contenedor y registra tu equipo.</p></div>
+      <div class="card form-grid">
+        <label>Tu nombre<input id="person" autocomplete="name" placeholder="Nombre del validador"></label>
+        <label>Nombre del equipo<input id="teamName" placeholder="Ej. Equipo Azul"></label>
+        <label class="wide">Contenedor<select id="containerSelect"><option value="">Cargando…</option></select></label>
+        <button id="joinBtn" class="primary">Entrar</button>
+        <button id="showContainerBtn" class="secondary">＋ Nuevo contenedor</button>
+      </div>
+      <div id="newContainerCard" class="card form-grid hidden">
+        <h2 class="wide">Nuevo contenedor</h2>
+        <label>Referencia<input id="containerRef" placeholder="Número visible del contenedor"></label>
+        <label>Orden de compra<input id="purchaseOrder" placeholder="Opcional"></label>
+        <button id="createContainerBtn" class="primary">Crear contenedor</button>
+      </div>
+    </section>
+
+    <section id="screenPallets" class="screen hidden">
+      <div class="card context"><div><small>CONTENEDOR</small><strong id="containerName"></strong></div><div><small>EQUIPO</small><strong id="teamLabel"></strong></div></div>
+      <div class="card"><div class="section-head"><div><h2>Tarimas</h2><p>Solamente las de este equipo</p></div><button id="newPalletBtn" class="round">＋</button></div><div id="palletList" class="list"></div></div>
+      <button id="exitTeamBtn" class="secondary full">Cambiar de equipo o contenedor</button>
+    </section>
+
+    <section id="screenCapture" class="screen hidden">
+      <div class="card pallet-head"><button id="backPalletsBtn" class="icon secondary">‹</button><div><small>TARIMA</small><h2 id="palletCode"></h2><small id="palletIdLabel"></small><span id="palletStatus" class="badge"></span></div><div class="totals"><b id="boxTotal">0</b><small>cajas</small><b id="pieceTotal">0</b><small>piezas</small></div></div>
+
+      <div id="captureCard" class="card">
+        <div class="section-head"><div><h2 id="captureTitle">Capturar caja</h2><p>Referencia interna, EAN o ambas</p></div><button id="clearBtn" class="icon secondary">↻</button></div>
+        <input id="captureId" type="hidden">
+        <div class="form-grid">
+          <label>Referencia interna<div class="with-action"><input id="internalRef"><button class="scan" data-target="internalRef">▣</button></div></label>
+          <label>EAN<div class="with-action"><input id="ean" inputmode="numeric"><button class="scan" data-target="ean">▣</button></div></label>
+          <label class="wide">Descripción *<input id="description" placeholder="Descripción visual del producto"></label>
+          <label>Piezas de esta caja *<input id="pieces" type="number" inputmode="numeric" min="1"></label>
+          <label>Color<input id="color"></label>
+          <label>Talla<input id="size" placeholder="S, M, L, XL…"></label>
+          <label>Alto (cm)<input id="height" type="number" inputmode="decimal" step="0.1"></label>
+          <label>Largo (cm)<input id="length" type="number" inputmode="decimal" step="0.1"></label>
+          <label>Ancho (cm)<input id="width" type="number" inputmode="decimal" step="0.1"></label>
+
+          <div class="photo-field">
+            <label>Foto del artículo *</label><div id="itemPreview" class="photo-preview"><span>Sin foto</span></div>
+            <div class="photo-buttons"><button class="camera primary" data-photo="item">📷 Tomar</button><button class="gallery secondary" data-photo="item">▧ Galería</button></div>
+            <input id="itemUpload" type="file" accept="image/*" hidden>
+          </div>
+          <div class="photo-field">
+            <label>Foto de caja máster *</label><div id="masterPreview" class="photo-preview"><span>Sin foto</span></div>
+            <div class="photo-buttons"><button class="camera primary" data-photo="master">📷 Tomar</button><button class="gallery secondary" data-photo="master">▧ Galería</button></div>
+            <input id="masterUpload" type="file" accept="image/*" hidden>
+          </div>
+          <label class="wide">Observaciones<textarea id="notes" rows="2"></textarea></label>
+          <button id="saveBtn" class="primary wide save">Guardar caja</button>
+        </div>
+      </div>
+
+      <div class="card"><div class="section-head"><div><h2>Capturado por el equipo</h2><p id="syncText">Actualizando…</p></div><button id="refreshBtn" class="icon secondary">↻</button></div><div id="captureList" class="list"></div><button id="finishBtn" class="finish">Finalizar y bloquear tarima</button></div>
+    </section>
+  </main>
+
+  <div id="cameraModal" class="modal hidden"><video id="cameraVideo" autoplay playsinline muted></video><div class="focus-box"></div><div class="camera-controls"><button id="closeCameraBtn" class="danger">Cancelar</button><button id="snapBtn" class="shutter hidden">●</button></div><p id="cameraHint"></p></div>
+  <input id="scanUpload" type="file" accept="image/*" capture="environment" hidden>
+  <div id="busy" class="busy hidden"><div class="spinner"></div><p id="busyText">Guardando…</p></div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="config.js"></script><script src="zxing-browser.min.js"></script><script src="app.js"></script>
+</body>
+</html>
