@@ -74,6 +74,7 @@
   </main>
 
   <div id="cameraModal" class="modal hidden"><video id="cameraVideo" autoplay playsinline muted></video><div class="focus-box"></div><div class="camera-controls"><button id="closeCameraBtn" class="danger">Cancelar</button><button id="snapBtn" class="shutter hidden">●</button></div><p id="cameraHint"></p></div>
+  <input id="scanUpload" type="file" accept="image/*" capture="environment" hidden>
   <div id="busy" class="busy hidden"><div class="spinner"></div><p id="busyText">Guardando…</p></div>
   <div id="toast" class="toast hidden"></div>
   <script src="config.js"></script><script src="vendor/zxing-browser.min.js"></script><script src="app.js"></script>
