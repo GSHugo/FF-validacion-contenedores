@@ -10,7 +10,7 @@
 <body>
   <header class="topbar">
     <div><strong>Validador de Contenedores</strong><small id="version"></small></div>
-    <div id="online" class="online">● En línea</div>
+    <div id="online" class="online">● Conectando</div>
   </header>
 
   <main>
@@ -38,7 +38,7 @@
     </section>
 
     <section id="screenCapture" class="screen hidden">
-      <div class="card pallet-head"><button id="backPalletsBtn" class="icon secondary">‹</button><div><small>TARIMA</small><h2 id="palletCode"></h2><span id="palletStatus" class="badge"></span></div><div class="totals"><b id="boxTotal">0</b><small>cajas</small><b id="pieceTotal">0</b><small>piezas</small></div></div>
+      <div class="card pallet-head"><button id="backPalletsBtn" class="icon secondary">‹</button><div><small>TARIMA</small><h2 id="palletCode"></h2><small id="palletIdLabel"></small><span id="palletStatus" class="badge"></span></div><div class="totals"><b id="boxTotal">0</b><small>cajas</small><b id="pieceTotal">0</b><small>piezas</small></div></div>
 
       <div id="captureCard" class="card">
         <div class="section-head"><div><h2 id="captureTitle">Capturar caja</h2><p>Referencia interna, EAN o ambas</p></div><button id="clearBtn" class="icon secondary">↻</button></div>
@@ -76,6 +76,6 @@
   <div id="cameraModal" class="modal hidden"><video id="cameraVideo" autoplay playsinline muted></video><div class="focus-box"></div><div class="camera-controls"><button id="closeCameraBtn" class="danger">Cancelar</button><button id="snapBtn" class="shutter hidden">●</button></div><p id="cameraHint"></p></div>
   <div id="busy" class="busy hidden"><div class="spinner"></div><p id="busyText">Guardando…</p></div>
   <div id="toast" class="toast hidden"></div>
-  <script src="config.js"></script><script src="app.js"></script>
+  <script src="config.js"></script><script src="vendor/zxing-browser.min.js"></script><script src="app.js"></script>
 </body>
 </html>
