@@ -33,7 +33,13 @@
 
     <section id="screenPallets" class="screen hidden">
       <div class="card context"><div><small>CONTENEDOR</small><strong id="containerName"></strong></div><div><small>EQUIPO</small><strong id="teamLabel"></strong></div></div>
-      <div class="card"><div class="section-head"><div><h2>Tarimas</h2><p>Solamente las de este equipo</p></div><button id="newPalletBtn" class="round">＋</button></div><div id="palletList" class="list"></div></div>
+      <div class="card">
+        <div class="section-head"><div><h2>Tarimas</h2><p>Crea una nueva o consulta las existentes</p></div><button id="newPalletBtn" class="round" aria-label="Crear nueva tarima">＋</button></div>
+        <details id="palletMenu" class="pallet-menu">
+          <summary><span>Ver tarimas creadas</span><span id="palletCount" class="pallet-count">0</span><span class="menu-chevron">⌄</span></summary>
+          <div id="palletList" class="list pallet-list"></div>
+        </details>
+      </div>
       <button id="exitTeamBtn" class="secondary full">Cambiar de equipo o contenedor</button>
     </section>
 
