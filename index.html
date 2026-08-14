@@ -36,7 +36,12 @@
       <div class="card">
         <div class="section-head"><div><h2>Tarimas</h2><p>Crea una nueva o consulta las existentes</p></div><button id="newPalletBtn" class="round" aria-label="Crear nueva tarima">＋</button></div>
         <details id="palletMenu" class="pallet-menu">
-          <summary><span>Ver tarimas creadas</span><span id="palletCount" class="pallet-count">0</span><span class="menu-chevron">⌄</span></summary>
+          <summary><span>Tarimas del contenedor</span><span id="palletCount" class="pallet-count">0</span><span class="menu-chevron">⌄</span></summary>
+          <div class="pallet-stats" aria-label="Resumen de tarimas">
+            <div><b id="palletTotal">0</b><small>Total</small></div>
+            <div class="stat-process"><b id="palletInProcess">0</b><small>En proceso</small></div>
+            <div class="stat-final"><b id="palletFinalized">0</b><small>Finalizadas</small></div>
+          </div>
           <div id="palletList" class="list pallet-list"></div>
         </details>
       </div>
